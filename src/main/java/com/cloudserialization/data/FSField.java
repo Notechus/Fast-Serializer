@@ -5,7 +5,7 @@ import static com.cloudserialization.serialization.SerializationWriter.writeByte
 /**
  * Created by notechus on 3/27/16.
  */
-public class Field
+public class FSField
 {
     // should imitate struct
     public static final byte CONTAINER_TYPE = ContainerType.FIELD;
@@ -14,7 +14,7 @@ public class Field
     public byte type;
     public byte[] data;
 
-    private Field()
+    private FSField()
     {
 
     }
@@ -28,7 +28,7 @@ public class Field
 
     public int getSize()
     {
-        assert (data.length == Type.getSize(type));
+        assert (data.length == FSType.getSize(type));
         return 1 + 2 + name.length + 1 + data.length;
     }
 
@@ -43,82 +43,82 @@ public class Field
         return pointer;
     }
 
-    public static Field Byte(String name, byte value)
+    public static FSField Byte(String name, byte value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.BYTE;
-        field.data = new byte[Type.getSize(Type.BYTE)];
+        field.type = FSType.BYTE;
+        field.data = new byte[FSType.getSize(FSType.BYTE)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Boolean(String name, boolean value)
+    public static FSField Boolean(String name, boolean value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.BOOLEAN;
-        field.data = new byte[Type.getSize(Type.BOOLEAN)];
+        field.type = FSType.BOOLEAN;
+        field.data = new byte[FSType.getSize(FSType.BOOLEAN)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Short(String name, short value)
+    public static FSField Short(String name, short value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.SHORT;
-        field.data = new byte[Type.getSize(Type.SHORT)];
+        field.type = FSType.SHORT;
+        field.data = new byte[FSType.getSize(FSType.SHORT)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Char(String name, char value)
+    public static FSField Char(String name, char value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.CHAR;
-        field.data = new byte[Type.getSize(Type.CHAR)];
+        field.type = FSType.CHAR;
+        field.data = new byte[FSType.getSize(FSType.CHAR)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Integer(String name, int value)
+    public static FSField Integer(String name, int value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.INTEGER;
-        field.data = new byte[Type.getSize(Type.INTEGER)];
+        field.type = FSType.INTEGER;
+        field.data = new byte[FSType.getSize(FSType.INTEGER)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Long(String name, long value)
+    public static FSField Long(String name, long value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.LONG;
-        field.data = new byte[Type.getSize(Type.LONG)];
+        field.type = FSType.LONG;
+        field.data = new byte[FSType.getSize(FSType.LONG)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Float(String name, float value)
+    public static FSField Float(String name, float value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.FLOAT;
-        field.data = new byte[Type.getSize(Type.FLOAT)];
+        field.type = FSType.FLOAT;
+        field.data = new byte[FSType.getSize(FSType.FLOAT)];
         writeBytes(field.data, 0, value);
         return field;
     }
 
-    public static Field Double(String name, double value)
+    public static FSField Double(String name, double value)
     {
-        Field field = new Field();
+        FSField field = new FSField();
         field.setName(name);
-        field.type = Type.DOUBLE;
-        field.data = new byte[Type.getSize(Type.DOUBLE)];
+        field.type = FSType.DOUBLE;
+        field.data = new byte[FSType.getSize(FSType.DOUBLE)];
         writeBytes(field.data, 0, value);
         return field;
     }

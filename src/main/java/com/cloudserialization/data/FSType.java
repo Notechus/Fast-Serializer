@@ -3,7 +3,7 @@ package com.cloudserialization.data;
 /**
  * Created by notechus on 3/27/16.
  */
-public class Type
+public class FSType
 {
     public static final byte UNKNOWN = 0;
     public static final byte BYTE = 1;

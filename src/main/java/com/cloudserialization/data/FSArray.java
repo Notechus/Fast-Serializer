@@ -5,7 +5,7 @@ import static com.cloudserialization.serialization.SerializationWriter.writeByte
 /**
  * Created by notechus on 3/31/16.
  */
-public class Array
+public class FSArray
 {
     public static final byte CONTAINER_TYPE = ContainerType.ARRAY;
     public short nameLength;
@@ -39,28 +39,28 @@ public class Array
         pointer = writeBytes(dest, pointer, count);
         switch (type)
         {
-            case Type.BYTE:
+            case FSType.BYTE:
                 pointer = writeBytes(dest, pointer, byteData);
                 break;
-            case Type.SHORT:
+            case FSType.SHORT:
                 pointer = writeBytes(dest, pointer, shortData);
                 break;
-            case Type.CHAR:
+            case FSType.CHAR:
                 pointer = writeBytes(dest, pointer, charData);
                 break;
-            case Type.INTEGER:
+            case FSType.INTEGER:
                 pointer = writeBytes(dest, pointer, intData);
                 break;
-            case Type.LONG:
+            case FSType.LONG:
                 pointer = writeBytes(dest, pointer, longData);
                 break;
-            case Type.FLOAT:
+            case FSType.FLOAT:
                 pointer = writeBytes(dest, pointer, floatData);
                 break;
-            case Type.DOUBLE:
+            case FSType.DOUBLE:
                 pointer = writeBytes(dest, pointer, doubleData);
                 break;
-            case Type.BOOLEAN:
+            case FSType.BOOLEAN:
                 pointer = writeBytes(dest, pointer, booleanData);
                 break;
         }
@@ -77,109 +77,109 @@ public class Array
     {
         switch (type)
         {
-            case Type.BYTE:
-                return byteData.length * Type.getSize(Type.BYTE);
-            case Type.SHORT:
-                return shortData.length * Type.getSize(Type.SHORT);
-            case Type.CHAR:
-                return charData.length * Type.getSize(Type.CHAR);
-            case Type.INTEGER:
-                return intData.length * Type.getSize(Type.INTEGER);
-            case Type.LONG:
-                return longData.length * Type.getSize(Type.LONG);
-            case Type.FLOAT:
-                return floatData.length * Type.getSize(Type.FLOAT);
-            case Type.DOUBLE:
-                return doubleData.length * Type.getSize(Type.DOUBLE);
-            case Type.BOOLEAN:
-                return booleanData.length * Type.getSize(Type.BOOLEAN);
+            case FSType.BYTE:
+                return byteData.length * FSType.getSize(FSType.BYTE);
+            case FSType.SHORT:
+                return shortData.length * FSType.getSize(FSType.SHORT);
+            case FSType.CHAR:
+                return charData.length * FSType.getSize(FSType.CHAR);
+            case FSType.INTEGER:
+                return intData.length * FSType.getSize(FSType.INTEGER);
+            case FSType.LONG:
+                return longData.length * FSType.getSize(FSType.LONG);
+            case FSType.FLOAT:
+                return floatData.length * FSType.getSize(FSType.FLOAT);
+            case FSType.DOUBLE:
+                return doubleData.length * FSType.getSize(FSType.DOUBLE);
+            case FSType.BOOLEAN:
+                return booleanData.length * FSType.getSize(FSType.BOOLEAN);
         }
         return 0;
     }
 
 
-    public static Array Byte(String name, byte[] data)
+    public static FSArray Byte(String name, byte[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.BYTE;
+        array.type = FSType.BYTE;
         array.count = data.length;
         array.byteData = data;
 
         return array;
     }
 
-    public static Array Short(String name, short[] data)
+    public static FSArray Short(String name, short[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.SHORT;
+        array.type = FSType.SHORT;
         array.count = data.length;
         array.shortData = data;
 
         return array;
     }
 
-    public static Array Char(String name, char[] data)
+    public static FSArray Char(String name, char[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.CHAR;
+        array.type = FSType.CHAR;
         array.count = data.length;
         array.charData = data;
 
         return array;
     }
 
-    public static Array Integer(String name, int[] data)
+    public static FSArray Integer(String name, int[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.INTEGER;
+        array.type = FSType.INTEGER;
         array.count = data.length;
         array.intData = data;
 
         return array;
     }
 
-    public static Array Long(String name, long[] data)
+    public static FSArray Long(String name, long[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.LONG;
+        array.type = FSType.LONG;
         array.count = data.length;
         array.longData = data;
 
         return array;
     }
 
-    public static Array Float(String name, float[] data)
+    public static FSArray Float(String name, float[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.FLOAT;
+        array.type = FSType.FLOAT;
         array.count = data.length;
         array.floatData = data;
 
         return array;
     }
 
-    public static Array Double(String name, double[] data)
+    public static FSArray Double(String name, double[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.DOUBLE;
+        array.type = FSType.DOUBLE;
         array.count = data.length;
         array.doubleData = data;
 
         return array;
     }
 
-    public static Array Boolean(String name, boolean[] data)
+    public static FSArray Boolean(String name, boolean[] data)
     {
-        Array array = new Array();
+        FSArray array = new FSArray();
         array.setName(name);
-        array.type = Type.BOOLEAN;
+        array.type = FSType.BOOLEAN;
         array.count = data.length;
         array.booleanData = data;
 

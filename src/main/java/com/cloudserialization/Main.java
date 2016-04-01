@@ -1,6 +1,10 @@
 package com.cloudserialization;
 
-import com.cloudserialization.data.Array;
+import com.cloudserialization.data.FSArray;
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class Main
 {
@@ -12,15 +16,29 @@ public class Main
         }
     }
 
+    static void saveToFile(String path, byte[] data)
+    {
+        try
+        {
+            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(path));
+            stream.write(data);
+            stream.close();
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
     public static void main(String[] args)
     {
-        int[] digits = new int[50000];
+        int[] digits = new int[50];
         for (int i = 0; i < digits.length; ++i)
         {
             digits[i] = i;
         }
         int[] elements = new int[]{1, 2, 3, 4, 5};
-        Array array = Array.Integer("test", digits);
+        FSArray array = FSArray.Integer("test", digits);
 
         byte[] data = new byte[array.getSize()];
         array.getBytes(data, 0);

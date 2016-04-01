@@ -5,8 +5,9 @@ package com.cloudserialization.data;
  */
 public class ContainerType
 {
-    public static byte UNKNOWN = 0;
-    public static byte FIELD = 1;
-    public static byte ARRAY = 2;
-    public static byte OBJECT = 3;
+    public static final byte UNKNOWN = 0;
+    public static final byte FIELD = 1;
+    public static final byte ARRAY = 2;
+    public static final byte OBJECT = 3;
+    public static final byte DATABASE = 4;
 }
